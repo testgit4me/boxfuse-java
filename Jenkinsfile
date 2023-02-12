@@ -22,10 +22,11 @@ pipeline {
             }
         }
 
-
-
-        
-
+        stage("prod"){
+            steps{
+                echo("prod the application...")
+            }
+        }
     }
 
 }
