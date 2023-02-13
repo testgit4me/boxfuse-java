@@ -24,6 +24,7 @@ pipeline {
             steps {
                 script {
                     echo "building the application"
+                    echo "building pipeline for $BRANCH_NAME "
                 }                
             }
         }        
@@ -39,6 +40,7 @@ pipeline {
             steps {
                 script {
                     echo "deploying the application"
+                    echo "deploying pipeline for $BRANCH_NAME "
                 }                
             }
         }        
