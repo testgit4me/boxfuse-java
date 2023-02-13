@@ -8,11 +8,21 @@ pipeline {
 
     stages {
 
-        stage("building"){
+        stage("building jar"){
             steps{
-                echo "building the application..."
+                echo "building application ..."
                 sh "mvn package"
-                sh "docker build -t projectvprofile/java-maven-app:jma-2.1 ."
+            }
+        }
+        
+        stage("building image"){
+            steps{
+                echo "building docker image..."
+                sh "docker build -t projectvprofile/java-maven-app:jma-2.1 ."                
+                
+                withCredentials([usernamePassword(credentialsId: "cred-docker-hub", passwordVariable: "PASSWORD", usernameVariable: "USERNAME")])
+                sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"                
+                sh "docker push projectvprofile/java-maven-app:jma-2.1"
             }
         }
 
