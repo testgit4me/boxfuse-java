@@ -37,6 +37,12 @@ pipeline {
                 }
             }
 
+            when{
+                expression{
+                    BRANCH_NAME == "jenkins-job"
+                }
+            }
+
             steps {
                 script {
                     echo "deploying the application"
