@@ -41,15 +41,9 @@ pipeline {
             }
         }
 
-        stage("testing"){
-            steps {
-                echo "testing the application"
-            }
-        }
-
-        stage("deploying"){
+        stage("deploying image"){
             steps{
-                echo "deploying the application"
+                gv.deployImage()
             }
         }
     }
