@@ -3,7 +3,7 @@ pipeline {
     agent any
     
     tools{
-        maven 'maven3'
+        maven "maven3"
     }
 
     stages {
@@ -12,6 +12,7 @@ pipeline {
             steps{
                 echo "building the application..."
                 sh "mvn package"
+                sh "docker build -t projectvprofile/java-maven-app:jma-2.1 ."
             }
         }
 
