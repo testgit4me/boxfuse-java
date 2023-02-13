@@ -5,14 +5,14 @@ def buildJar(){
 
 def buildImage(){
     echo "building docker image..."
-    sh "docker build -t projectvprofile/java-maven-app:jma-2.1 ."  
+    sh "docker build -t projectvprofile/java-maven-app:jma-2.2 ."  
 }
 
 def pushImage(){
     echo "Pushing image..."
     withCredentials([usernamePassword(credentialsId: "cred-docker-hub", passwordVariable: "PASSWORD", usernameVariable: "USERNAME")]){
         sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"                
-        sh "docker push projectvprofile/java-maven-app:jma-2.1"        
+        sh "docker push projectvprofile/java-maven-app:jma-2.2"        
     }    
 }
 
