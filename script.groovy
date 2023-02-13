@@ -9,6 +9,7 @@ def buildImage(){
 }
 
 def pushImage(){
+    echo "Pushing image..."
     withCredentials([usernamePassword(credentialsId: "cred-docker-hub", passwordVariable: "PASSWORD", usernameVariable: "USERNAME")]){
         sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"                
         sh "docker push projectvprofile/java-maven-app:jma-2.1"        

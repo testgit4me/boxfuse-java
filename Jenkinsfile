@@ -36,10 +36,10 @@ pipeline {
         stage("Pushing image"){
             steps{
                 script(){
-                    gr.pushImage()
-                }                
+                    gv.pushImage()
+                }              
             }
-        }        
+        }
 
         stage("testing"){
             steps {
