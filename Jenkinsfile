@@ -9,7 +9,7 @@ pipeline {
 
     stages {
         
-        stage("init"){
+        stage("initing groovy"){
             steps{
                 script {
                     gv = load "script.groovy"                
@@ -38,7 +38,7 @@ pipeline {
                     gr.pushImage()
                 }                
             }
-        }         
+        }        
 
         stage("testing"){
             steps {
