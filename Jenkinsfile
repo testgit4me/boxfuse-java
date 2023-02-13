@@ -20,7 +20,6 @@ pipeline {
                     BRANCH_NAME == "master"
                 }
             }
-
             steps {
                 script {
                     echo "building the application"
