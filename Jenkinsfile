@@ -1,12 +1,17 @@
 pipeline {
 
     agent any
+    
+    tools{
+        maven 'maven3'
+    }
 
     stages {
 
         stage("building"){
             steps{
                 echo "building the application..."
+                sh "mvn package"
             }
         }
 
