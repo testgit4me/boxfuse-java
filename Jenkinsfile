@@ -12,7 +12,8 @@ pipeline {
         stage("initing groovy"){
             steps{
                 script {
-                    gv = load "script.groovy"                
+                    gv = load "script.groovy"  
+                }              
             }
         }
 
@@ -52,5 +53,4 @@ pipeline {
             }
         }
     }
-}
 }
